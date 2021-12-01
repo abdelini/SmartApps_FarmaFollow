@@ -33,6 +33,10 @@ const LogboekScherm = () => {
 
   }
 
+  useEffect(() => {
+    console.log(feeling)
+  })
+
 
   return (
     <div>

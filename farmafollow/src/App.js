@@ -8,9 +8,9 @@ import ChatBot from "./pages/Chatbot/ChatBot";
 function App() {
   return (
     <div className="App">
-      {/* <LogboekScherm /> */}
+      <LogboekScherm />
       
-       <ChatBot />
+       {/* <ChatBot /> */}
       
     </div>
   );
