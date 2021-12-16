@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import ToggleButton from "react-bootstrap/ToggleButton";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import goed from "../../images/Goed.png";
 import matig from "../../images/Matig.png";
 import ernstig from "../../images/Ernstig.png";
-import { Container } from "react-bootstrap";
+//import { Container } from "react-bootstrap";
 
 const LogboekScherm = () => {
   //Get current date
@@ -18,6 +20,15 @@ const LogboekScherm = () => {
   const [date, setDate] = useState(startDate);
   const [entry, setEntry] = useState("");
   const [feeling, setFeeling] = useState(null);
+
+  const [radioValue, setRadioValue] = useState('1');
+
+  const radios = [
+    { name: 'goed', value: '1' },
+    { name: 'matig', value: '2' },
+    { name: 'ernstig', value: '3' },
+  ];
+
 
   function saveEntry() {
     const test = {
@@ -45,15 +56,23 @@ const LogboekScherm = () => {
       <p>Notities</p>
 
       <Form>
-        <Container>
-         
-            <img alt="Smiley gezicht" src={goed} onClick={() => setFeeling("Goed")} />
-
-            <img alt="Smiley gezicht" src={matig} onClick={() => setFeeling("Matig")} />
-
-            <img alt="Smiley gezicht" src={ernstig} onClick={() => setFeeling("Ernstig")} />
-          
-        </Container>
+      <ButtonGroup className="mb-2">
+        {radios.map((radio, idx) => (
+          <ToggleButton
+            key={idx}
+            id={`radio-${idx}`}
+            type="radio"
+            variant="secondary"
+            name="radio"
+            value={radio.value}
+            checked={radioValue === radio.value}
+            onChange={(e) => setRadioValue(e.currentTarget.value)}
+          >
+            {radio.name}
+          </ToggleButton>
+        ))}
+      </ButtonGroup>
+       
 
         <InputGroup  size="sm">
           <FormControl value={entry} onChange={e => setEntry(e.target.value)} as="textarea" rows={6} aria-label="With textarea" />
