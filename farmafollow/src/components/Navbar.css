@@ -34,7 +34,7 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    padding: 8px 0 8px 16px;
+    padding: 8px;
     list-style-type: none;
     height: 60px;
 }
@@ -58,6 +58,7 @@
 
 .nav-menu-items{
     width: 100%;
+    padding-left: 0;
 }
 
 .navbar-toggle{
