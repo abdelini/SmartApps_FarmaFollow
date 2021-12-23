@@ -4,7 +4,6 @@ import PersonalDetails from './PersonalDetails'
 import Confirmation from './Confirmation'
 import DokterGegevens from './DokterGegevens.js'
 import Login from '../Login'
-import { doc, setDoc, updateDoc } from "firebase/firestore"; 
 import firebase, {auth} from "../../firebase"
 
 export default class Signup extends Component {
@@ -83,6 +82,7 @@ export default class Signup extends Component {
           />
         )
         case 5: 
+        {
         //email, naam, fnaam, wachtwoord, kindnaam, kindfnaam, ingreep, dokternaam, dokternummer, kliniek, adres, stad    
         // let uid = auth.currentUser?.uid;
         //   try {
@@ -103,18 +103,13 @@ export default class Signup extends Component {
         //   } catch (error) {
         //       console.error('Error writing new message to database', error);
         //   }
+        }
+            // Add a new document in collection "cities"
+            // Create an initial document to update.
+            auth.createUserWithEmailAndPassword(email, wachtwoord)
+            auth.signInWithEmailAndPassword(email, wachtwoord);
 
-// Add a new document in collection "cities"
-// Create an initial document to update.
- auth.createUserWithEmailAndPassword(email, wachtwoord)
- auth.signInWithEmailAndPassword(email, wachtwoord);
 
-// const frankDocRef = doc(db, "users", "frank");
-// await setDoc(frankDocRef, {
-//     name: "Frank",
-//     favorites: { food: "Pizza", color: "Blue", subject: "recess" },
-//     age: 12
-// });
 
 
 
