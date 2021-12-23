@@ -4,7 +4,7 @@ import { Container, Grid, Button } from '@material-ui/core'
 import { Card } from "react-bootstrap"
 import good from './img/good.gif'
 
-import db from '..firebase'
+import db from '../../firebase'
 
  const Confirmation = async ({ prevStap, nextStap, values }) => {
   console.log(values);

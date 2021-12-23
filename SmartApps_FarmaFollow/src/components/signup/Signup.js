@@ -4,7 +4,7 @@ import PersonalDetails from './PersonalDetails'
 import Confirmation from './Confirmation'
 import DokterGegevens from './DokterGegevens.js'
 import Login from '../Login'
-import firebase, {auth} from "../../firebase"
+import {auth} from "../../firebase"
 
 export default class Signup extends Component {
 

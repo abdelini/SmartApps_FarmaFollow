@@ -1,8 +1,10 @@
-import firebase from "firebase/app"
-import "firebase/auth"
+import firebase from 'firebase/compat/app';
+import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"
+import {getAuth } from "firebase/auth"
 
-const app = firebase.initializeApp({
+
+const app = initializeApp({
   apiKey: "AIzaSyDvjEcyNwlt-cRD_xhzzgQMS-2JkiOZf-w",
   authDomain: "reactapp-f55a2.firebaseapp.com",
   projectId: "reactapp-f55a2",
@@ -14,5 +16,5 @@ const app = firebase.initializeApp({
 
 export const db = getFirestore()
 
-export const auth = app.auth()
-export default app
+export const auth = getAuth()
+export default firebase
