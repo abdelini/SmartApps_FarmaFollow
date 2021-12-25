@@ -5,6 +5,8 @@ import ToggleButton from "react-bootstrap/ToggleButton";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
+import { doc, setDoc, collection, addDoc } from "firebase/firestore"; 
+import { db } from "../../firebase";
 import goed from "../../images/Goed.png";
 import matig from "../../images/Matig.png";
 import ernstig from "../../images/Ernstig.png";
@@ -21,7 +23,7 @@ const LogboekScherm = () => {
   const [entry, setEntry] = useState("");
   const [feeling, setFeeling] = useState(null);
 
-  const [radioValue, setRadioValue] = useState('1');
+  const [radioValue, setRadioValue] = useState('2');
 
   const radios = [
     { name: 'goed', value: '1' },
@@ -30,24 +32,28 @@ const LogboekScherm = () => {
   ];
 
 
-  function saveEntry() {
-    const test = {
-      Datum: startDate,
-      Gevoel: feeling,
-      Logboek: entry
+  async function saveEntry() {
 
+    try {
+      const docRef = await addDoc(collection(db, "Logboek"), {
+        Datum: startDate,
+        Gevoel: feeling,
+        Logboek: entry
+      });
+      console.log("Document written with ID: ", docRef.id);
     }
-
-    console.log(test.Datum)
-    console.log(test.Gevoel)
-    console.log(test.Logboek)
-
+    catch (err) {
+      console.error("Error adding document", err)
+    }
   }
 
-  useEffect(() => {
-    console.log(feeling)
-  })
+  // useEffect(() => {
+  //   console.log(feeling)
+  // })
 
+  function checkOnchange() {
+
+  }
 
   return (
     <div>
@@ -66,7 +72,10 @@ const LogboekScherm = () => {
             name="radio"
             value={radio.value}
             checked={radioValue === radio.value}
-            onChange={(e) => setRadioValue(e.currentTarget.value)}
+            onChange={(e) => {
+              console.log("Im changing!")
+              setRadioValue(e.currentTarget.value)
+              setFeeling(radio.name)}}
           >
             {radio.name}
           </ToggleButton>

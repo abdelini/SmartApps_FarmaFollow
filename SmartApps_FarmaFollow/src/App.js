@@ -8,7 +8,7 @@ import Child from './pages/Child'
 import Profile from './pages/Profile'
 import BottomNavbar from './components/BottomNavbar';
 import Logboek from './pages/Logboek/LogboekScherm';
-import Chatbot from './pages/Chatbot/ChatBot';
+import ChatBot from './pages/Chatbot/ChatBot';
 
 function App() {
   return (
@@ -16,15 +16,16 @@ function App() {
       <Router>
         <Navbar/>
         <Routes>
-          <Route path='/home' component={Home}/>
-          <Route path='/profile' component={Profile}/>
-          <Route path='/child' component={Child}/>
-          <Route path='/logboek' component={Logboek}/>
-          <Route path='/chatbot' component={Chatbot}/>
+          <Route path='/home' component={Home} />
+          <Route path='/profile' component={Profile} />
+          <Route path='/child' component={Child} />
+          <Route path='/logboek' component={Logboek} />
+          <Route path='/chatbot' component={<ChatBot />} />
         </Routes>
         <Card/>
         <BottomNavbar/>
-        <Chatbot />
+        <ChatBot />
+        <Logboek />
       </Router>
     </>
   );
