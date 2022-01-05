@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react"
 import { auth } from "../firebase"
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
 
 const AuthContext = React.createContext()
 
@@ -8,19 +9,47 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      setCurrentUser(user)
+      setLoading(false)
+    })
+
+    return unsubscribe
+  }, [])
+
+  
   const [currentUser, setCurrentUser] = useState()
   const [loading, setLoading] = useState(true)
 
-  function signup(email, password) {
-    return auth.createUserWithEmailAndPassword(email, password)
+  async function signup(email, password) {
+    try {
+      const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
+      const user = userCredentials.user
+      console.log(user)
+    } catch (err) {
+      const errorCode = err.code
+      const errorMessage = err.message
+      console.log(`Code: ${errorCode} message ${errorMessage}`)
+    }
   }
 
-  function login(email, password) {
-    return auth.signInWithEmailAndPassword(email, password)
+  async function login(email, password) {
+    try {
+      const userCredentials = await signInWithEmailAndPassword(auth, email, password)
+      const user = userCredentials.user
+      console.log(user)
+    } catch (err) {
+      const errorCode = err.code
+      const errorMessage = err.message
+      console.log(`Code: ${errorCode} message ${errorMessage}`)
+    }
   }
 
   function logout() {
     return auth.signOut()
+    
   }
 
 
@@ -36,14 +65,7 @@ export function AuthProvider({ children }) {
     return currentUser.updatePassword(password)
   }
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      setCurrentUser(user)
-      setLoading(false)
-    })
-
-    return unsubscribe
-  }, [])
+  
 
   const value = {
     currentUser,
@@ -61,3 +83,6 @@ export function AuthProvider({ children }) {
     </AuthContext.Provider>
   )
 }
+
+
+export default AuthContext

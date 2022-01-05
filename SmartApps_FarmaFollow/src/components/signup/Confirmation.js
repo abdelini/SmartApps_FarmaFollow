@@ -1,28 +1,18 @@
 import React from 'react'
-import { doc, setDoc } from "firebase/firestore"; 
 import { Container, Grid, Button } from '@material-ui/core'
 import { Card } from "react-bootstrap"
 import good from './img/good.gif'
 
-import db from '../../firebase'
 
- const Confirmation = async ({ prevStap, nextStap, values }) => {
+ const Confirmation =  ({ prevStap, nextStap, values }) => {
   console.log(values);
 
-  const Continue = async e => {
+  const Continue =  e => {
     e.preventDefault();
-tazz();
-nextStap();
+    nextStap();
   }
 
-  async function tazz() {
-    await setDoc(doc(db, "cities", "LA"), {
-      name: "Los Angeles",
-      state: "CA",
-      country: "USA"
-    });
-    
-  }
+ 
   const Previous = e => {
     e.preventDefault();
     prevStap();

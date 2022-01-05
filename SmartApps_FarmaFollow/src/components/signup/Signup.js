@@ -5,8 +5,15 @@ import Confirmation from './Confirmation'
 import DokterGegevens from './DokterGegevens.js'
 import Login from '../Login'
 import {auth} from "../../firebase"
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import Dashboard from '../Dashboard'
+import AuthContext from '../../contexts/AuthContext'
+
+
 
 export default class Signup extends Component {
+
+ 
 
   state = {
     stap: 1,
@@ -81,39 +88,27 @@ export default class Signup extends Component {
             values={ values }
           />
         )
-        case 5: 
-        {
-        //email, naam, fnaam, wachtwoord, kindnaam, kindfnaam, ingreep, dokternaam, dokternummer, kliniek, adres, stad    
-        // let uid = auth.currentUser?.uid;
-        //   try {
-        //       return (firebase.firestore().collection("Users").doc(uid).set({
-        //         email: email,
-        //         naam: naam,
-        //         fnaam: fnaam,
-        //         wachtwoord: wachtwoord,
-        //         kindnaam: kindnaam,
-        //         kindfnaam: kindfnaam,
-        //         ingreep: ingreep,
-        //         dokternaam: dokternaam,
-        //         dokternummer: dokternummer,
-        //         kliniek: kliniek,
-        //         adres: adres,
-        //         stad: stad,
-        //       }, { merge: true }));
-        //   } catch (error) {
-        //       console.error('Error writing new message to database', error);
-        //   }
-        }
-            // Add a new document in collection "cities"
-            // Create an initial document to update.
-            auth.createUserWithEmailAndPassword(email, wachtwoord)
-            auth.signInWithEmailAndPassword(email, wachtwoord);
+        case 5:
 
-
-
-
-
-        return;
+        //Create user 
+        createUserWithEmailAndPassword(auth, email, wachtwoord)
+        .then((userCredentials) => {
+          const user = userCredentials.user;
+          console.log(user)
+        })
+        .catch((err) => {
+          const errorCode = err.code;
+          const errorMessage = err.message;
+          console.log(`Code: ${errorCode} message ${errorMessage}`)
+        })
+        
+      
+      //Return to dashboard
+        return(
+        <Dashboard />
+        )
+            
+            
       default: 
       return (
         <Login 
