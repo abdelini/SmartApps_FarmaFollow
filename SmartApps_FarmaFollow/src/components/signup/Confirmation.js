@@ -1,15 +1,35 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Container, Grid, Button } from '@material-ui/core'
 import { Card } from "react-bootstrap"
 import good from './img/good.gif'
+import { useAuth } from "../../contexts/AuthContext"
+import { useNavigate } from "react-router-dom"
 
 
  const Confirmation =  ({ prevStap, nextStap, values }) => {
-  console.log(values);
+  const { signup } = useAuth()
+  const [loading, setLoading] = useState(false)
+  let navigate = useNavigate();
 
-  const Continue =  e => {
+  //console.log(values);
+
+  async function Continue(e)  {
     e.preventDefault();
-    nextStap();
+
+    try {
+      
+      setLoading(true)
+      await signup(values.email, values.wachtwoord)
+      console.log("hey")
+      
+    } catch {
+      //setError("Failed to log in")
+    }
+
+    setLoading(false)
+    navigate("/")
+    
+
   }
 
  
@@ -40,6 +60,7 @@ import good from './img/good.gif'
           <Grid item xs={12} sm={6}>
             <Button 
               onClick={ Continue }
+              disabled={ loading }
               type="submit"
               fullWidth
               variant="contained"
