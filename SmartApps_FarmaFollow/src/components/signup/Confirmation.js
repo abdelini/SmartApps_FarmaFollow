@@ -6,7 +6,8 @@ import { useAuth } from "../../contexts/AuthContext"
 import { useNavigate } from "react-router-dom"
 
 
- const Confirmation =  ({ prevStap, nextStap, values }) => {
+ const Confirmation =  ({ prevStap, values }) => {
+   
   const { signup } = useAuth()
   const [loading, setLoading] = useState(false)
   let navigate = useNavigate();
@@ -20,7 +21,6 @@ import { useNavigate } from "react-router-dom"
       
       setLoading(true)
       await signup(values.email, values.wachtwoord)
-      console.log("hey")
       
     } catch {
       //setError("Failed to log in")
