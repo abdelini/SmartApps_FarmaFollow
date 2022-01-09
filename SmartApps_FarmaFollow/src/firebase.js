@@ -1,9 +1,10 @@
-import {initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"
 import {getAuth } from "firebase/auth"
 
 
-const firebaseConfig = initializeApp({
+// eslint-disable-next-line no-unused-vars
+const app = initializeApp({
   apiKey: "AIzaSyDvjEcyNwlt-cRD_xhzzgQMS-2JkiOZf-w",
   authDomain: "reactapp-f55a2.firebaseapp.com",
   projectId: "reactapp-f55a2",
@@ -13,11 +14,9 @@ const firebaseConfig = initializeApp({
   measurementId: "G-BV9ME7JCSW"
 })
 
-
 export const db = getFirestore()
 
 export const auth = getAuth()
 
-//export default app
-
+export const user = auth.currentUser
 
