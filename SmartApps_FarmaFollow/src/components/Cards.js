@@ -2,8 +2,10 @@ import React from 'react'
 import Card from 'react-bootstrap/Card'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Cards.css'
+//import { useNavigate } from "react-router-dom";
 
 function Cards() {
+    //let navigate = useNavigate();
     return (
         <div className='cards-container'>
             <Card style={{ width: '10rem', height: '10rem' }}>

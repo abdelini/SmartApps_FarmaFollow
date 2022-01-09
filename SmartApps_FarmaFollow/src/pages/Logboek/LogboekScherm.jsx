@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
-import { doc, setDoc, collection, addDoc } from "firebase/firestore"; 
+import { useAuth } from "../../contexts/AuthContext"
+import { collection, addDoc } from "firebase/firestore"; 
 import { db } from "../../firebase";
-import goed from "../../images/Goed.png";
-import matig from "../../images/Matig.png";
-import ernstig from "../../images/Ernstig.png";
+// import goed from "../../images/Goed.png";
+// import matig from "../../images/Matig.png";
+// import ernstig from "../../images/Ernstig.png";
 //import { Container } from "react-bootstrap";
 
 const LogboekScherm = () => {
@@ -18,8 +19,11 @@ const LogboekScherm = () => {
   currDate.setDate(currDate.getDate());
   let startDate = currDate.toDateString();
 
+  // Get user from context
+  const { currentUser } = useAuth();
+
   //State variables
-  const [date, setDate] = useState(startDate);
+  //const [date, setDate] = useState(startDate);
   const [entry, setEntry] = useState("");
   const [feeling, setFeeling] = useState(null);
 
@@ -35,7 +39,7 @@ const LogboekScherm = () => {
   async function saveEntry() {
 
     try {
-      const docRef = await addDoc(collection(db, "Logboek"), {
+      const docRef = await addDoc(collection(db, "Users", currentUser.uid, "Logboek"), {
         Datum: startDate,
         Gevoel: feeling,
         Logboek: entry
@@ -51,9 +55,9 @@ const LogboekScherm = () => {
   //   console.log(feeling)
   // })
 
-  function checkOnchange() {
+  // function checkOnchange() {
 
-  }
+  // }
 
   return (
     <div>

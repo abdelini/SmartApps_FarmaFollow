@@ -8,17 +8,17 @@ export default function Dashboard() {
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
 
-  console.log(`User is auther ${currentUser.email}`);
 
-  async function handleLogout() {
+   async function handleLogout() {
     setError("");
 
     try {
       await logout();
-      navigate("/login");
     } catch {
       setError("Failed to log out");
     }
+    navigate("/login");
+    //check
   }
 
   return (
@@ -28,6 +28,7 @@ export default function Dashboard() {
           <h2 className="text-center mb-4">Profile</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <strong>Email:</strong> {currentUser.email}
+          <br></br>
           <strong>UID:</strong> {currentUser.uid}
           {/* <Link to="/update-profile" className="btn btn-primary w-100 mt-3">
             Update Profile

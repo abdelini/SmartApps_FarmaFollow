@@ -7,7 +7,7 @@ import logo from "./logo.png";
 export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { login, currentUser } = useAuth();
+  const { login } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -16,17 +16,16 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      setError("");
+      //setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      navigate("/");
     } catch {
-      setError("Failed to log in");
+      //setError("Failed to log in");
     }
-
+    navigate("/");
     setLoading(false);
   }
-  console.log(currentUser?.email);
+
 
   return (
     <>

@@ -3,6 +3,8 @@ import { auth, db } from "../firebase";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
 } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 
@@ -53,8 +55,14 @@ export function AuthProvider({ children }) {
     }
   }
 
-  function logout() {
-    return auth.signOut();
+    function logout() {
+    try {
+     signOut(auth)
+      console.log("User signed out")
+    } catch (error) {
+      console.log(error.code)
+    }
+    
   }
 
   function resetPassword(email) {
@@ -70,12 +78,17 @@ export function AuthProvider({ children }) {
   }
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setCurrentUser(user);
-      setLoading(false);
+     const unsubscribe = onAuthStateChanged(auth, (user) => {
+       setCurrentUser(user)
+      // if (user) {
+      //   setCurrentUser(user);
+      //   console.log("User is logged in", user)
+      // } else {
+      //   console.log("User is logged out", user)
+      // }
     });
 
-    return unsubscribe;
+    return unsubscribe
   }, []);
 
   const value = {
@@ -90,7 +103,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 }

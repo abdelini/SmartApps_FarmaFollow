@@ -18,12 +18,6 @@ export const BottombarData = [
         cName: 'nav-text'
     },
     {
-        title: 'Chatbot',
-        path: '/chatbot',
-        icon: <BiIcons.BiBot/>,
-        cName: 'nav-text'
-    },
-    {
         title: 'Profiel',
         path: '/profile',
         icon: <MdIcons.MdAccountCircle/>,
