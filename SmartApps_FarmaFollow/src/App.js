@@ -19,7 +19,7 @@ function App() {
     <>
         <Navbar />
         <Routes>
-          <Route
+          {/* <Route
             path="/"
             element={
               <PrivateRoute>
@@ -27,7 +27,7 @@ function App() {
                 <Logboek />
               </PrivateRoute>
             }
-          />
+          /> */}
           <Route path="/home" element={<Card />} />
           <Route path="/profile" element={<Dashboard />} />
           <Route path="/child" element={<Child />} />
@@ -39,7 +39,7 @@ function App() {
         </Routes>
         <BottomNavbar />
         
-        <ChatBot />
+        {/* <ChatBot /> */}
     </>
   );
 }

@@ -20,7 +20,7 @@ const Confirmation = ({ prevStap, values }) => {
       await signup(values.email, values.wachtwoord);
       await saveInfo();
     } catch {
-      //setError("Failed to log in")
+      //Error ghandling
     }
     setLoading(false);
     navigate("/");

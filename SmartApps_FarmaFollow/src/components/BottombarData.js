@@ -12,8 +12,8 @@ export const BottombarData = [
         cName: 'nav-text'
     },
     {
-        title: 'Dokter',
-        path: '/doctor',
+        title: 'Chatbot',
+        path: '/chatbot',
         icon: <FaIcons.FaHospitalAlt/>,
         cName: 'nav-text'
     },
