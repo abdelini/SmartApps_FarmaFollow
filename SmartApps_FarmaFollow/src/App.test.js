@@ -30,7 +30,7 @@ test("Navigation works as intended", () => {
 //Kijken of de routing werkt
 test("Navigation works when going backwards and forwards", () => {
   window.history.pushState({}, '', '/chatbot');
-  window.location.reload()
+  
   window.history.pushState({}, '', '/home');
   window.location.reload()
 
@@ -54,10 +54,12 @@ test("Navigation works when going backwards and forwards", () => {
 
   // // Ga naar de vorige pagina
   userEvent.click(screen.getByText('Chat'), window.history.back())
+  window.location.replace("home")
   expect(screen.getByText(/Logboek/i)).toBeInTheDocument();
 
   // // Terug op het startscherm en ga nu terug naar de volgende pagina
   userEvent.click(screen.getByText(/Logboek/i), window.history.forward());
+  window.location.replace("chatbot")
   expect(screen.getByText('Chat')).toBeInTheDocument(); // Check dat de juiste volgende pagina is geladen
 });
 

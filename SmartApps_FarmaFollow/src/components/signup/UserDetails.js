@@ -32,11 +32,11 @@ const UserDetails = ({ nextStap, handleChange, values }) => {
 
   return (
     
-    <Card>
-    <Card.Body>
-    <img className="rounded mx-auto d-block" src={ouders} alt="logo"></img>
+    
+    
 
     <Container  component="main" maxWidth="xs">
+      <img className="rounded mx-auto d-block" src={ouders} alt="logo"></img>
       <div>
         <Typography  component="h1" variant="h5">
           Sign up
@@ -107,8 +107,7 @@ const UserDetails = ({ nextStap, handleChange, values }) => {
       </div>
     </Container>
 
-    </Card.Body>
-    </Card>
+    
         
   )
 }

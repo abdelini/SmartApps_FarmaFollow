@@ -146,7 +146,7 @@ const logica = [
 const Chatbot = () => {
   return (
     <div>
-      <ChatBot steps={logica} botDelay={500} userDelay={300}  />
+      <ChatBot steps={logica} botDelay={500} userDelay={300}  floating={true} />
     </div>
   );
 };

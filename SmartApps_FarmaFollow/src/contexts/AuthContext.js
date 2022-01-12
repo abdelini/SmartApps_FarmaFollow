@@ -39,20 +39,24 @@ export function AuthProvider({ children }) {
     }
   }
 
-  async function login(email, password) {
-    try {
-      const userCredentials = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      const user = userCredentials.user;
-      console.log(user);
-    } catch (err) {
-      const errorCode = err.code;
-      const errorMessage = err.message;
-      console.log(`Code: ${errorCode} message ${errorMessage}`);
-    }
+  // async function login(email, password) {
+  //   try {
+  //     const userCredentials = await signInWithEmailAndPassword(
+  //       auth,
+  //       email,
+  //       password
+  //     );
+  //     const user = userCredentials.user;
+  //     console.log(user);
+  //   } catch (err) {
+  //     const errorCode = err.code;
+  //     const errorMessage = err.message;
+  //     console.log(`Code: ${errorCode} message ${errorMessage}`);
+  //   }
+  // }
+
+  function login(email, password) {
+    return signInWithEmailAndPassword(auth, email, password)
   }
 
     function logout() {
@@ -79,7 +83,15 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
      const unsubscribe = onAuthStateChanged(auth, (user) => {
-       setCurrentUser(user)
+       if (user) {
+         console.log("sign in")
+         setCurrentUser(user)
+         setLoading(false)
+       } else {
+         console.log("signed out")
+         setLoading(false)
+       }
+       
     });
 
     return unsubscribe
@@ -97,7 +109,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={value}>
-      {children}
+      {!loading && children}
     </AuthContext.Provider>
   );
 }
