@@ -3,6 +3,8 @@ import { auth, db } from "../firebase";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
 } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 
@@ -37,24 +39,34 @@ export function AuthProvider({ children }) {
     }
   }
 
-  async function login(email, password) {
-    try {
-      const userCredentials = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      const user = userCredentials.user;
-      console.log(user);
-    } catch (err) {
-      const errorCode = err.code;
-      const errorMessage = err.message;
-      console.log(`Code: ${errorCode} message ${errorMessage}`);
-    }
+  // async function login(email, password) {
+  //   try {
+  //     const userCredentials = await signInWithEmailAndPassword(
+  //       auth,
+  //       email,
+  //       password
+  //     );
+  //     const user = userCredentials.user;
+  //     console.log(user);
+  //   } catch (err) {
+  //     const errorCode = err.code;
+  //     const errorMessage = err.message;
+  //     console.log(`Code: ${errorCode} message ${errorMessage}`);
+  //   }
+  // }
+
+  function login(email, password) {
+    return signInWithEmailAndPassword(auth, email, password)
   }
 
-  function logout() {
-    return auth.signOut();
+    function logout() {
+    try {
+     signOut(auth)
+      console.log("User signed out")
+    } catch (error) {
+      console.log(error.code)
+    }
+    
   }
 
   function resetPassword(email) {
@@ -70,12 +82,19 @@ export function AuthProvider({ children }) {
   }
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setCurrentUser(user);
-      setLoading(false);
+     const unsubscribe = onAuthStateChanged(auth, (user) => {
+       if (user) {
+         console.log("sign in")
+         setCurrentUser(user)
+         setLoading(false)
+       } else {
+         console.log("signed out")
+         setLoading(false)
+       }
+       
     });
 
-    return unsubscribe;
+    return unsubscribe
   }, []);
 
   const value = {

@@ -19,11 +19,12 @@ const Confirmation = ({ prevStap, values }) => {
       setLoading(true);
       await signup(values.email, values.wachtwoord);
       await saveInfo();
+      navigate("/");
     } catch {
-      //setError("Failed to log in")
+      //Error ghandling
     }
     setLoading(false);
-    navigate("/");
+    
   }
 
   async function saveInfo() {
@@ -56,8 +57,6 @@ const Confirmation = ({ prevStap, values }) => {
   };
 
   return (
-    <Card>
-      <Card.Body>
         <Container component="main" maxWidth="xs">
           <div>
             <h1>Goed gedaan, veel beterschap!</h1>
@@ -94,8 +93,7 @@ const Confirmation = ({ prevStap, values }) => {
             </Grid>
           </div>
         </Container>
-      </Card.Body>
-    </Card>
+
   );
 };
 
