@@ -19,9 +19,9 @@ function Cards() {
 }
 
 
-function clickLogboek() {
-    navigate("/logboek")
-}
+    function goToTips() {
+        navigate("/tips")
+    }
 
     return (
         <div className='cards-container'>
@@ -54,7 +54,7 @@ function clickLogboek() {
                     <Card.Text className='cards-text'>
                     Enkele tips om uw kind te helpen
                     </Card.Text>
-                    <Button variant="primary">Tips</Button>
+                    <Button onClick={goToTips} variant="primary">Tips</Button>
                 </Card.Body>
             </Card>
 
