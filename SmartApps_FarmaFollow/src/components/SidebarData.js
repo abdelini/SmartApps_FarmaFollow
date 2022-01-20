@@ -17,23 +17,23 @@ export const SidebarData = [
         cName: 'nav-text'
     },
     {
-        title: 'Informatie Kind',
-        path: '/child',
+        title: 'Tips voor uw kind',
+        path: '/tips',
         icon: <FaIcons.FaChild/>,
         cName: 'nav-text'
     },
     {
-        title: 'Informatie Dokter',
-        path: '/doctor',
+        title: 'Medicatie',
+        path: '/medicatie',
         icon: <FaIcons.FaClinicMedical/>,
         cName: 'nav-text'
     },
-    {
-        title: 'Privacy',
-        path: '/privacy',
-        icon: <MdIcons.MdPrivacyTip/>,
-        cName: 'nav-text'
-    },
+    // {
+    //     title: 'Privacy',
+    //     path: '/privacy',
+    //     icon: <MdIcons.MdPrivacyTip/>,
+    //     cName: 'nav-text'
+    // },
     {
         title: 'Logboek',
         path: '/logboek',
