@@ -16,8 +16,9 @@ const TipsSection = styled.div`
 
 const Container = styled.div`
     position: absolute;
-    top: 30%;
+    top: 20%;
     box-shadow: 2px 10px 35px 1px rgba(153, 153, 153, 0.3);
+    margin: 0 3rem;
 `
 
 const Wrap = styled.div`
@@ -26,7 +27,7 @@ const Wrap = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: auto;
     text-align: center;
     cursor: pointer;
 
@@ -43,8 +44,8 @@ const Wrap = styled.div`
 const Dropdown = styled.div`
     background: #99ccff;
     color: #fff;
-    width: 100%;
-    height: 100px;
+    width: auto;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,6 +55,7 @@ const Dropdown = styled.div`
 
     p{
         font-size: 2rem;
+        padding: 20px
     }
 `
 
