@@ -46,6 +46,7 @@ const PersonalDetails = ({ prevStap, nextStap, handleChange, values }) => {
                 label="kindnaam"
                 onChange={handleChange('kindnaam')}
                 defaultValue={values.kindnaam}
+                fullWidth
               />
             </Grid>
             {/* kindfnaam */}
@@ -55,6 +56,7 @@ const PersonalDetails = ({ prevStap, nextStap, handleChange, values }) => {
                 label="kindfnaam"
                 onChange={handleChange('kindfnaam')}
                 defaultValue={values.kindfnaam}
+                fullWidth
               />
             </Grid>
 
@@ -77,7 +79,7 @@ const PersonalDetails = ({ prevStap, nextStap, handleChange, values }) => {
                 variant="contained"
                 color="primary"
               >
-                Previous
+                Vorige
               </Button>
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -88,7 +90,7 @@ const PersonalDetails = ({ prevStap, nextStap, handleChange, values }) => {
                 variant="contained"
                 color="primary"
               >
-                Next
+                Volgende
               </Button>
             </Grid>
           </Grid>

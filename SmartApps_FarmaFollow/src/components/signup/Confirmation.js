@@ -74,7 +74,7 @@ const Confirmation = ({ prevStap, values }) => {
                   variant="contained"
                   color="primary"
                 >
-                  Previous
+                  Vorige
                 </Button>
               </Grid>
               <Grid item xs={12} sm={6}>

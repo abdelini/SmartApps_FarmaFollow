@@ -100,7 +100,7 @@ const UserDetails = ({ nextStap, handleChange, values }) => {
             variant="contained"
             color="primary"
           >
-            Next
+            Volgende
           </Button>
         </form>
       </div>

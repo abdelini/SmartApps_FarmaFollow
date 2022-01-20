@@ -2,6 +2,8 @@ import React from "react";
 import { Table } from "react-bootstrap";
 
 function Medicatie() {
+
+
   return (
     <div>
       <h3>

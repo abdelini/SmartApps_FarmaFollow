@@ -115,7 +115,7 @@ const PersonalDetails = ({ prevStap, nextStap, handleChange, values }) => {
                 variant="contained"
                 color="primary"
               >
-                Next
+                Volgende
               </Button>
             </Grid>
           </Grid>

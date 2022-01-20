@@ -7,7 +7,6 @@ import { Button, ListGroup, Accordion } from "react-bootstrap";
 
 function Profile() {
   const { currentUser, logout } = useAuth();
-
   const [data, setData] = useState([]);
   const [logboek, setLogboek] = useState([]);
 
@@ -59,7 +58,7 @@ function Profile() {
     fetchLogboek();
   }, [currentUser.uid]);
 
-  return (
+    return (
     <div>
               <h2>Profiel Gegevens</h2>
               <Button variant="link" onClick={handleLogout}>Uitloggen</Button>
@@ -100,6 +99,8 @@ function Profile() {
       
     </div>
   );
+
+
 }
 
 export default Profile;
