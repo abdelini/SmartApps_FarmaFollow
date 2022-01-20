@@ -1,0 +1,25 @@
+[debug] [2022-01-20T21:46:26.482Z] ----------------------------------------------------------------------
+[debug] [2022-01-20T21:46:26.486Z] Command:       C:\Users\Silen\DOWNLO~1\firebase-tools-instant-win.exe C:\Users\Silen\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\bin\firebase init
+[debug] [2022-01-20T21:46:26.486Z] CLI Version:   10.1.1
+[debug] [2022-01-20T21:46:26.486Z] Platform:      win32
+[debug] [2022-01-20T21:46:26.486Z] Node Version:  v12.18.1
+[debug] [2022-01-20T21:46:26.488Z] Time:          Thu Jan 20 2022 22:46:26 GMT+0100 (Central European Standard Time)
+[debug] [2022-01-20T21:46:26.488Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-01-20T21:46:26.585Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-01-20T21:46:26.585Z] > authorizing via signed-in user (kevinkantarama@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Silen\Documents\GitHub\SmartApps_FarmaFollow\SmartApps_FarmaFollow
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
