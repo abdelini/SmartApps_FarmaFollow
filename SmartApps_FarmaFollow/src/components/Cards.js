@@ -5,7 +5,6 @@ import './Cards.css'
 import LogboekImage from "../images/logboek.jpg"
 import MedicatieImage from "../images/Meds.jpg"
 import TipsImage from "../images/Tip.png"
-import Logboek from "../pages/Logboek/LogboekScherm"
 import { useNavigate } from "react-router-dom";
 
 function Cards() {

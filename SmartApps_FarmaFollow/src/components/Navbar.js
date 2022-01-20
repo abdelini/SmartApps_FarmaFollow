@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
@@ -12,6 +12,13 @@ function Navbar() {
 
   const showSidebar = () => setSidebar(!sidebar);
 
+  let navigate = useNavigate();
+
+  function goToHome() {
+          navigate("/home")
+  }
+
+
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
@@ -20,7 +27,7 @@ function Navbar() {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <Nav className="me-auto">
-            <Nav.Link variant="dark" href="/home">Home</Nav.Link>
+            <Nav.Link variant="dark" onClick={goToHome} >Home</Nav.Link>
           </Nav>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
