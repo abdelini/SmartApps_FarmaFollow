@@ -14,6 +14,7 @@ import LoginModal from "./components/LoginModal";
 import PrivateRoute from "./components/PrivateRoute";
 import Signup from "./components/signup/Signup";
 import ForgotPassword from "./components/ForgotPassword";
+import Tips from "./components/tips/Tips";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/signup/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/tips" element={<Tips />} />
       </Routes>
 
       
