@@ -5,13 +5,11 @@ import { Routes, Route } from "react-router-dom";
 import Card from "./components/Cards";
 import Child from "./pages/Child";
 import Profile from "./pages/Profile";
-import BottomNavbar from "./components/BottomNavbar";
 import Logboek from "./pages/Logboek/LogboekScherm";
 import ChatBot from "./pages/Chatbot/ChatBot";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import Signup from "./components/signup/Signup";
-import ForgotPassword from "./components/ForgotPassword";
 import Tips from "./components/tips/Tips";
 import Medicatie from "./pages/Medicatie"
 
@@ -40,9 +38,7 @@ function App() {
         <Route path="/medicatie" element={<Medicatie />} />
         <Route path="/tips" element={<Tips />} />
       </Routes>
-
       
-      {/* <BottomNavbar /> */}
       <ChatBot />
     </>
   );

@@ -81,7 +81,7 @@ const Tips = () => {
                     return(
                         <>
                             <Wrap onClick={() => toggle(index)} key={index}>
-                                <h1>{item.ingreep}</h1>
+                                <h2>{item.ingreep}</h2>
                                 <span>{clicked === index ? <FiMinus/> : <FiPlus/>}</span>
                             </Wrap>
                             {clicked === index ? (

@@ -1,15 +1,10 @@
 import React from "react";
 import ChatBot from "react-simple-chatbot";
-import { useNavigate } from "react-router-dom";
-// import { ThemeProvider } from "styled-components";
+
 
 const Chatbot = () => {
 
-   let navigate = useNavigate();
 
-   function gotoMeds() {
-     navigate("/medicatie")
-   }
   const logica = [
     //Welkombericht
     {
