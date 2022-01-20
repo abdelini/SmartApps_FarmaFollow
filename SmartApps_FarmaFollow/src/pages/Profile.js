@@ -3,7 +3,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
-import { Button, ListGroup, Accordion, Dropdown } from "react-bootstrap";
+import { Button, ListGroup, Accordion } from "react-bootstrap";
 
 function Profile() {
   const { currentUser, logout } = useAuth();
@@ -11,16 +11,15 @@ function Profile() {
   const [data, setData] = useState([]);
   const [logboek, setLogboek] = useState([]);
 
-  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   async function handleLogout() {
-    setError("");
+    
 
     try {
       await logout();
     } catch {
-      setError("Failed to log out");
+      alert("Uitloggen gefaald, gelieve uw browser te herladen of te verlaten");
     }
     navigate("/login");
     //check
@@ -62,14 +61,9 @@ function Profile() {
 
   return (
     <div>
-     
-
-      
-
-        <Accordion>
-        <Accordion.Item eventKey="0">
-            <Accordion.Header><h2>Gegevens</h2></Accordion.Header>
-                <Accordion.Body>
+              <h2>Profiel Gegevens</h2>
+              <Button variant="link" onClick={handleLogout}>Uitloggen</Button>
+              
                 {data.map((el, index) => (
                 <ListGroup key={index}>
                 <ListGroup.Item><b>Email</b>: {el.Email}  </ListGroup.Item> 
@@ -85,9 +79,6 @@ function Profile() {
                 <ListGroup.Item><b>Kliniek</b>: {el.Kliniek} </ListGroup.Item>
                 </ListGroup>
             ))}
-                </Accordion.Body>
-                </Accordion.Item>
-        </Accordion>
         {/* <p>Wijzig gegevens</p> */}
       <br />
       <h2>Logboek</h2>
@@ -106,9 +97,7 @@ function Profile() {
         </Accordion>
       ))}
 
-      <Button variant="link" onClick={handleLogout}>
-        Log Out
-      </Button>
+      
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import * as IoIcons from "react-icons/io";
 import * as MdIcons from "react-icons/md";
 
 export const SidebarData = [
@@ -36,8 +35,8 @@ export const SidebarData = [
         cName: 'nav-text'
     },
     {
-        title: 'Terms & Conditions',
-        path: '/terms',
+        title: 'Logboek',
+        path: '/logboek',
         icon: <MdIcons.MdOutlineFeed/>,
         cName: 'nav-text'
     }

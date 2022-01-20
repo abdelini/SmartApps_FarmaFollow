@@ -1,7 +1,6 @@
 
 import { Container, Typography, Grid, TextField, Button } from '@material-ui/core'
 import React from "react"
-import { Card } from "react-bootstrap"
 import ouders from './img/ouders.jpg';
 
 
