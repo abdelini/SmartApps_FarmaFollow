@@ -8,12 +8,10 @@ import Profile from "./pages/Profile";
 import BottomNavbar from "./components/BottomNavbar";
 import Logboek from "./pages/Logboek/LogboekScherm";
 import ChatBot from "./pages/Chatbot/ChatBot";
-import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
-import LoginModal from "./components/LoginModal";
 import PrivateRoute from "./components/PrivateRoute";
 import Signup from "./components/signup/Signup";
-import ForgotPassword from "./components/ForgotPassword";
+import Medicatie from "./pages/Medicatie"
 
 function App() {
   return (
@@ -36,11 +34,11 @@ function App() {
         <Route path="/chatbot" element={<ChatBot />} />
         <Route path="/signup/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/medicatie" element={<Medicatie />} />
       </Routes>
 
       
-      <BottomNavbar />
+      {/* <BottomNavbar /> */}
       <ChatBot />
     </>
   );

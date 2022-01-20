@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Container, Grid, Button } from "@material-ui/core";
-import { Card } from "react-bootstrap";
 import good from "./img/good.gif";
 import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";

@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import ToggleButton from "react-bootstrap/ToggleButton";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import { useAuth } from "../../contexts/AuthContext";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase";
-// import goed from "../../images/Goed.png";
-// import matig from "../../images/Matig.png";
-// import ernstig from "../../images/Ernstig.png";
+import Heelgoed from "../../images/Heelgoed.png";
+import Goed from "../../images/Goed.png";
+import Matig from "../../images/Matig.png";
+import Slecht from "../../images/Slecht.png";
+import Heelslecht from "../../images/Heelslecht.png";
+import '../Logboek/LogboekScherm.css'
 //import { Container } from "react-bootstrap";
 
 const LogboekScherm = () => {
@@ -28,14 +29,7 @@ const LogboekScherm = () => {
   const [entry, setEntry] = useState("");
   const [feeling, setFeeling] = useState(null);
 
-  const [radioValue, setRadioValue] = useState("");
   const [validated, setValidated] = useState(false);
-
-  const radios = [
-    { name: "goed", value: "1" },
-    { name: "matig", value: "2" },
-    { name: "ernstig", value: "3" },
-  ];
 
 
   // Form submit
@@ -82,59 +76,37 @@ const LogboekScherm = () => {
     <div>
       <h3>{startDate}</h3>
 
-      <p>Notities</p>
+      
 
+      <p>Klik op een emoji om aan te duiden hoe het kind zich voelt</p>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
-        <ButtonGroup className="mb-2">
-          {radios.map((radio, idx) => (
-            <ToggleButton
-              key={idx}
-              id={`radio-${idx}`}
-              type="radio"
-              variant="secondary"
-              name="radio"
-              value={radio.value}
-              checked={radioValue === radio.value}
-              onChange={(e) => {
-                console.log("Im changing!");
-                setRadioValue(e.currentTarget.value);
-                setFeeling(radio.name);
-              }}
-            >
-              {radio.name}
-            </ToggleButton>
-          ))}
-        </ButtonGroup>
+      
+        <input onChange={() => {setFeeling("Heel goed")}} type="radio" name="emotion" id="heelgoed" class="input-hidden" />
+        <label class="label_item" for="heelgoed">
+          <img src={Heelgoed} alt="Ik voel me heel goed" />
+        </label>
 
-        {/* <Form.Check inline type="radio" label="1" />
-        <Form.Check inline type="radio" label="2" />
-        <Form.Check inline type="radio" label="3" /> */}
+        <input onChange={() => {setFeeling("Goed")}} type="radio" name="emotion" id="goed" class="input-hidden" />
+        <label class="label_item" for="goed">
+          <img src={Goed} alt="Ik voel me goed" />
+        </label>
 
-        {/* {["radio"].map((type) => (
-          <div key={`inline-${type}`} className="mb-3">
-           
-            <Form.Check
-              inline
-              label="1"
-              name="group1"
-              type={type}
-              id={`inline-${type}-1`}
-            />
-            <Form.Check
-              inline
-              label="2"
-              name="group1"
-              type={type}
-              id={`inline-${type}-2`}
-            />
-            <Form.Check
-              inline
-              label="3"
-              type={type}
-              id={`inline-${type}-3`}
-            />
-          </div>
-        ))} */}
+        <input onChange={() => {setFeeling("Matig")}} type="radio" name="emotion" id="matig" class="input-hidden" />
+        <label class="label_item" for="matig">
+          <img src={Matig} alt="Ik voel me matig" />
+        </label>
+
+        <input onChange={() => {setFeeling("Slecht")}} type="radio" name="emotion" id="slecht" class="input-hidden" />
+        <label class="label_item" for="slecht">
+          <img src={Slecht} alt="Ik voel me slecht" />
+        </label>
+
+        <input onChange={() => {setFeeling("Heel slecht")}} type="radio" name="emotion" id="heelslecht" class="input-hidden" />
+        <label class="label_item" for="heelslecht">
+          <img src={Heelslecht} alt="Ik voel me heel slecht" />
+        </label>
+
+        <h3>Notities</h3>
 
         <InputGroup size="sm">
           <FormControl
@@ -149,11 +121,6 @@ const LogboekScherm = () => {
             Gelieve uw notities aan te vullen
           </Form.Control.Feedback>
         </InputGroup>
-
-        {/* <Form.Group controlId="formFileSm" className="mb-3">
-          <Form.Label>Optioneel: Voeg een foto toe</Form.Label>
-          <Form.Control type="file" size="sm" />
-        </Form.Group> */}
 
         <Button type="submit" disabled={loading}>
           Voeg toe aan logboek
