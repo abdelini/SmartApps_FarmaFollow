@@ -82,41 +82,44 @@ const LogboekScherm = () => {
       
 
       <p>Klik op een emoji om aan te duiden hoe het kind zich voelt</p>
+      
+      <br></br>
+
 
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
       
-        <input onChange={() => {setFeeling("Heel goed")}} type="radio" name="emotion" id="heelgoed" class="input-hidden" />
+        <input onChange={() => {setFeeling("Geen pijn")}} type="radio" name="emotion" id="heelgoed" class="input-hidden" />
         <label class="label_item" for="heelgoed">
           <img src={Heelgoed} alt="Ik voel me heel goed" />
-          <p>Heel goed </p>
+          <p>Geen pijn </p>
         </label>
         
 
-        <input onChange={() => {setFeeling("Goed")}} type="radio" name="emotion" id="goed" class="input-hidden" />
+        <input onChange={() => {setFeeling("Weinige pijn")}} type="radio" name="emotion" id="goed" class="input-hidden" />
         <label class="label_item" for="goed">
           <img src={Goed} alt="Ik voel me goed" />
-          <p> Goed </p>
+          <p> Weinige pijn </p>
         </label>
         
 
-        <input onChange={() => {setFeeling("Matig")}} type="radio" name="emotion" id="matig" class="input-hidden" />
+        <input onChange={() => {setFeeling("Matige pijn")}} type="radio" name="emotion" id="matig" class="input-hidden" />
         <label class="label_item" for="matig">
           <img src={Matig} alt="Ik voel me matig" />
-          <p>Matig</p>
+          <p>Matige pijn</p>
         </label>
         
 
-        <input onChange={() => {setFeeling("Slecht")}} type="radio" name="emotion" id="slecht" class="input-hidden" />
+        <input onChange={() => {setFeeling("Hevige pijn")}} type="radio" name="emotion" id="slecht" class="input-hidden" />
         <label class="label_item" for="slecht">
           <img src={Slecht} alt="Ik voel me slecht" />
-          <p>Slecht</p>
+          <p>Hevige pijn</p>
         </label>
         
 
-        <input onChange={() => {setFeeling("Heel slecht")}} type="radio" name="emotion" id="heelslecht" class="input-hidden" />
+        <input onChange={() => {setFeeling("Zeer hevige pijn")}} type="radio" name="emotion" id="heelslecht" class="input-hidden" />
         <label class="label_item" for="heelslecht">
           <img src={Heelslecht} alt="Ik voel me heel slecht" />
-          <p>Heel slecht</p>
+          <p>Zeer hevige pijn</p>
         </label>
         
 
@@ -140,8 +143,11 @@ const LogboekScherm = () => {
           Voeg toe aan logboek
         </Button>
       </Form>
+      <br></br>
+      <br></br>
+      <p>De logboekverslagen worden opgeslagen bij uw profiel.</p>
 
-      <p>De logboekverslagen worden opgeslagen bij uw profiel. Klik hier om naar uw profiel te gaan </p>
+      
     </div>
   );
 };

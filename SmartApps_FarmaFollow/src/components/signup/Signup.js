@@ -20,9 +20,9 @@ export default class Signup extends Component {
     kindfnaam: '',
     ingreep: '',
     dokternaam: '',
-    dokternummer: '', 
+    //dokternummer: '', 
     kliniek: '', 
-    adres: '', 
+    //adres: '', 
     stad: '', 
   }
 
@@ -49,8 +49,8 @@ export default class Signup extends Component {
 
   render() {
     const { stap } = this.state;
-    const { email, naam, fnaam, wachtwoord, kindnaam, kindfnaam, ingreep, dokternaam, dokternummer, kliniek, adres, stad } = this.state;
-    const values = { email, naam, fnaam, wachtwoord, kindnaam, kindfnaam, ingreep, dokternaam, dokternummer, kliniek, adres, stad }
+    const { email, naam, fnaam, wachtwoord, kindnaam, kindfnaam, ingreep, dokternaam, kliniek, stad } = this.state;
+    const values = { email, naam, fnaam, wachtwoord, kindnaam, kindfnaam, ingreep, dokternaam, kliniek, stad }
     
     switch(stap) {
       case 1: 

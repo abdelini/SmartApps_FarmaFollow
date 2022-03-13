@@ -63,9 +63,9 @@ export function AuthProvider({ children }) {
     function logout() {
     try {
      signOut(auth)
-      console.log("User signed out")
+      //console.log("User signed out")
     } catch (error) {
-      console.log(error.code)
+      //console.log(error.code)
     }
     
   }
@@ -85,11 +85,11 @@ export function AuthProvider({ children }) {
   useEffect(() => {
      const unsubscribe = onAuthStateChanged(auth, (user) => {
        if (user) {
-         console.log("sign in")
+         //console.log("sign in")
          setCurrentUser(user)
          setLoading(false)
        } else {
-         console.log("signed out")
+         //console.log("signed out")
          setLoading(false)
        }
        

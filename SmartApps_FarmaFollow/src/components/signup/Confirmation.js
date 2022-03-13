@@ -37,9 +37,9 @@ const Confirmation = ({ prevStap, values }) => {
           Kindfnaam: values.kindfnaam,
           Ingreep: values.ingreep,
           Dokternaam: values.dokternaam,
-          Dokternummer: values.dokternummer,
+          //Dokternummer: values.dokternummer,
           Kliniek: values.kliniek,
-          Adres: values.adres,
+          //Adres: values.adres,
           Stad: values.stad,
         },
         { merge: true }

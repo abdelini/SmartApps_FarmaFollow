@@ -57,8 +57,8 @@ const UserDetails = ({ nextStap, handleChange, values }) => {
               {/* naam */}
               <Grid item xs={12}>
                 <TextField 
-                  placeholder="naam"
-                  label="naam"
+                  placeholder="naam ouder"
+                  label="naam ouder"
                   onChange={handleChange('naam')}
                   defaultValue={values.naam}
                   autoComplete="naam"

@@ -34,7 +34,7 @@ const PersonalDetails = ({ prevStap, nextStap, handleChange, values }) => {
       <img className="rounded mx-auto d-block" src={kindjes} alt="logo"></img>
       <div>
         <Typography  component="h1" variant="h5">
-          Sign up
+          Naam kind en ingreep
         </Typography>
         <form>
           <Grid container spacing={2}>
@@ -52,7 +52,7 @@ const PersonalDetails = ({ prevStap, nextStap, handleChange, values }) => {
             {/* kindfnaam */}
             <Grid item xs={12} sm={6}>
               <TextField 
-                placeholder="kindfnaam"
+                placeholder="kind familienaam"
                 label="kindfnaam"
                 onChange={handleChange('kindfnaam')}
                 defaultValue={values.kindfnaam}

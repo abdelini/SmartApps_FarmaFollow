@@ -307,7 +307,7 @@ const Chatbot = () => {
 
   return (
     <div>
-      <ChatBot steps={logica} botDelay={1000} userDelay={300}  floating={true} hideSubmitButton={true} />
+      <ChatBot steps={logica} botDelay={1500} userDelay={300}  floating={true} hideSubmitButton={true} />
     </div>
   );
 };

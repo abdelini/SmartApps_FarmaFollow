@@ -11,15 +11,15 @@ const PersonalDetails = ({ prevStap, nextStap, handleChange, values }) => {
   if (values.dokternaam === "") {
     alert("dokternaam onjuist");
   }
-  if (values.dokternummer === "") {
-    alert("dokternummer onjuist");
-  }  
+  // if (values.dokternummer === "") {
+  //   alert("dokternummer onjuist");
+  // }  
   if (values.kliniek === "") {
     alert("kliniek onjuist");
   }   
-  if (values.adres === "") {
-    alert("adres onjuist");
-  }   
+  // if (values.adres === "") {
+  //   alert("adres onjuist");
+  // }   
   if (values.stad === "") {
     alert("stad onjuist");
     return;
@@ -39,7 +39,7 @@ const PersonalDetails = ({ prevStap, nextStap, handleChange, values }) => {
       <img className="rounded mx-auto d-block" src={happy} alt="logo"></img>
       <div>
         <Typography component="h1" variant="h5">
-          Sign up
+          Gegevens dokter
         </Typography>
 
         <form>
@@ -56,7 +56,7 @@ const PersonalDetails = ({ prevStap, nextStap, handleChange, values }) => {
               />
             </Grid>
             {/* dokternummer */}
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <TextField 
                 placeholder="dokternummer"
                 label="dokternummer"
@@ -65,7 +65,7 @@ const PersonalDetails = ({ prevStap, nextStap, handleChange, values }) => {
                 autoComplete="dokternummer"
                 fullWidth
               />
-            </Grid>
+            </Grid> */}
             <Grid item xs={12}>
               <TextField 
                 placeholder="kliniek"
@@ -76,7 +76,7 @@ const PersonalDetails = ({ prevStap, nextStap, handleChange, values }) => {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <TextField 
                 placeholder="adres"
                 label="adres"
@@ -85,7 +85,7 @@ const PersonalDetails = ({ prevStap, nextStap, handleChange, values }) => {
                 autoComplete="adres"
                 fullWidth
               />
-            </Grid>
+            </Grid> */}
             <Grid item xs={12}>
               <TextField 
                 placeholder="stad"

@@ -5,13 +5,12 @@ import {getAuth } from "firebase/auth"
 
 // eslint-disable-next-line no-unused-vars
 const app = initializeApp({
-  apiKey: "AIzaSyDvjEcyNwlt-cRD_xhzzgQMS-2JkiOZf-w",
-  authDomain: "reactapp-f55a2.firebaseapp.com",
-  projectId: "reactapp-f55a2",
-  storageBucket: "reactapp-f55a2.appspot.com",
-  messagingSenderId: "412130197602",
-  appId: "1:412130197602:web:f7c6e91e4c78ad4174913b",
-  measurementId: "G-BV9ME7JCSW"
+  apiKey: "AIzaSyAQmOgu41B7Nme2BxjtJhoTg7M6WnoExk8",
+  authDomain: "farmafollow-f3003.firebaseapp.com",
+  projectId: "farmafollow-f3003",
+  storageBucket: "farmafollow-f3003.appspot.com",
+  messagingSenderId: "18105215388",
+  appId: "1:18105215388:web:2881c9d4633bc034870059"
 })
 
 export const db = getFirestore()
