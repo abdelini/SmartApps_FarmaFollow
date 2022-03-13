@@ -18,7 +18,7 @@ const Chatbot = () => {
       id: "ingreep",
       options: [
         { value: 1, label: "Keelamandelen", trigger: "KeelInfo" },
-        { value: 2, label: "Neusamandelen", trigger: "NeusInfo" },
+        { value: 2, label: "Neusamandel", trigger: "NeusInfo" },
         { value: 3, label: "Trommelvliesbuisjes", trigger: "TrommelInfo" },
       ],
     },
@@ -45,7 +45,7 @@ const Chatbot = () => {
       options: [
         { value: 1, label: "Tips", trigger: "KeelTips" },
         { value: 2, label: "Medicatie", trigger: "KeelMeds" },
-        { value: 3, label: "Mijn kind heeft veel pijn", trigger: "KeelPijn" },
+        { value: 3, label: "Mijn kind heeft ongemak", trigger: "KeelPijn" },
       ],
     },
     {
@@ -89,7 +89,16 @@ const Chatbot = () => {
     // },
     {
       id:'Einde',
-      message: 'Veel beterschap!'
+      message: 'Veel beterschap! U kan de chat sluiten. Als u terug hulp nodig heeft kan u hieronder een nieuwe optie aanduiden.',
+      trigger: "OpnieuwHulp"
+    },
+    {
+      id: "OpnieuwHulp",
+      options: [
+        { value: 1, label: "Keelamandelen", trigger: "KeelInfo" },
+        { value: 2, label: "Neusamandel", trigger: "NeusInfo" },
+        { value: 3, label: "Trommelvliesbuisjes", trigger: "TrommelInfo" },
+      ],
     },
     {
       id: "KeelMeds",
@@ -97,12 +106,51 @@ const Chatbot = () => {
         <a href="/medicatie">
           Klik hier om naar de medicatie pagina te gaan
         </a>
-        )
+        ),
+      trigger: 'MeerInfoKeel'
     },
     {
       id: "KeelPijn",
-      message: "In dit geval is het aangeraden om uw arts te contacteren",
+      message: "Wat voor ongemak heeft uw kind?",
+      trigger: "WatKeelPijn"
     },
+    {
+      id: "WatKeelPijn",
+      options: [
+        { value: 1, label: "Keel- en oorpijn", trigger: "KOpijn" },
+        { value: 2, label: "Misselijkheid", trigger: "Misselijkheid" },
+        { value: 3, label: "Koorts", trigger: "KeelKoorts" },
+      ]
+    },
+    {
+      id:'KOpijn',
+      message: 'Deze pijn is te wijten aan de ingreep en hoort bij het herstel van de wonde.',
+      trigger: 'KOpijn2'
+    },
+    {
+      id:'KOpijn2',
+      message: 'We raden u aan om het medicatieschema de eerste 3 dagen na de ingreep consequent te volgen. Hierdoor blijft de pijn onder controle',
+      trigger: 'MeerNeusInfo'
+    },
+    {
+      id:'MeerNeusInfo',
+      message: 'Kan ik nog ergens mee helpen?',
+      trigger: 'MeerInfoKeel'
+    },
+
+    
+    {
+      id:'Misselijkheid',
+      message: 'Na de ingreep kan uw kind donker bloed braken. Dit is bloed dat tijdens de operatie in de maag is gekomen. Hierover hoeft u zich geen zorgen te maken. ',
+      trigger: 'MeerNeusInfo'
+      
+    },
+    {
+      id:'KeelKoorts',
+      message: 'Frequent hebben kinderen na de ingreep wat verhoging van de temperatuursverhoging (tot 38°C). Dit is normaal en de temperatuur zakt na het geven van Paracetamol®.',
+      trigger: 'MeerNeusInfo'
+    },
+  
   
     //Neus ingreep info
     {
@@ -110,7 +158,7 @@ const Chatbot = () => {
       options: [
         { value: 1, label: "Tips", trigger: "NeusTips" },
         { value: 2, label: "Medicatie", trigger: "NeusMeds" },
-        { value: 3, label: "Mijn kind heeft pijn", trigger: "NeusPijn" },
+        { value: 3, label: "Mijn kind heeft ongemak", trigger: "NeusPijn" },
       ],
     },
     {
@@ -132,10 +180,53 @@ const Chatbot = () => {
         </a>
         )
     },
+
     {
       id: "NeusPijn",
-      message: "In dit geval is het aangeraden om uw arts te contacteren",
+      message: "Wat voor ongemak heeft uw kind?",
+      trigger: "WatNeusPijn"
     },
+    {
+      id: "WatNeusPijn",
+      options: [
+        { value: 1, label: "Bloed", trigger: "Bloedingen" },
+        { value: 2, label: "Koorts", trigger: "NeusKoorts" },
+        { value: 3, label: "Veel pijn", trigger: "VeelNeusPijn" },
+      ]
+    },
+    {
+      id:'Bloedingen',
+      message: 'Indien het bloed een bruine kleur heeft hoeft u zich geen zorgen te maken, dit betekent dat het oud bloed is.',
+      trigger: 'Bloedingen2'
+    },
+    {
+      id:'Bloedingen2',
+      message: 'Indien het bloed rood is dient u contact op te nemen met de arts.',
+      trigger: 'NogNeusHelp'
+    },
+    {
+      id:'NogNeusHelp',
+      message: 'Kan ik nog ergens mee helpen?',
+      trigger: 'Keuze'
+    },
+    {
+      id:'NeusKoorts',
+      message: 'Volg het medicatieschema indien uw kind koorts heeft. Als uw kind na 3 dagen nog koorts heeft, gelieve dan contact op te nemen met een arts',
+      trigger: 'NogNeusHelp'
+    },
+    {
+      id:'VeelNeusPijn',
+      message: 'Als uw kind nog steeds veel pijn heeft, zelfs met het geven van pijnstillers, neemt u best contact op met een arts',
+      trigger: 'NogNeusHelp'
+    },
+    {
+      id:'Keuze',
+      options: [
+        { value: 1, label: "Ja", trigger: "Neus" },
+        { value: 2, label: "Nee", trigger: "Einde" },
+      ]
+    },
+
   
     //Trommel ingreep info
     {
@@ -143,7 +234,7 @@ const Chatbot = () => {
       options: [
         { value: 1, label: "Tips", trigger: "TrommelTips" },
         { value: 2, label: "Medicatie", trigger: "TrommelMeds" },
-        { value: 3, label: "Mijn kind heeft pijn", trigger: "TrommelPijn" },
+        { value: 3, label: "Mijn kind heeft ongemak", trigger: "TrommelPijn" },
       ],
     },
     {
@@ -154,7 +245,8 @@ const Chatbot = () => {
             <li>Om de 6 maanden op controle</li>
             <li>Laat uw kind de eerste week na de operatie oordopjes dragen bij het zwemmen</li>
           </ul>
-        </div>)
+        </div>),
+        trigger: "ExtraHulp"
     },
     {
       id: "TrommelMeds",
@@ -162,18 +254,60 @@ const Chatbot = () => {
         <a href="/medicatie">
           Klik hier om naar de medicatie pagina te gaan
         </a>
-        )
+        ),
+      trigger: "ExtraHulp"
     },
     {
       id: "TrommelPijn",
-      message: "In dit geval is het aangeraden om uw arts te contacteren",
+      message: "Wat voor ongemak heeft uw kind?",
+      trigger: 'WatTrommelPijn'
+    },
+    {
+      id: "WatTrommelPijn",
+      options: [
+        { value: 1, label: "Vocht uit het oor", trigger: "OorVocht" },
+        { value: 2, label: "Gevoel van druk in oor", trigger: "OorDruk" },
+        { value: 3, label: "Koorts", trigger: "TrommelKoorts" },
+      ]
+    },
+    {
+      id: "OorVocht",
+      message: "Oorvocht verdwijnt meestal spontaan na enkele dagen tot een week",
+      trigger: "OorVocht2"
+    },
+    {
+      id: "OorVocht2",
+      message: "Indien er na zeven dagen nog altijd vocht uit het oor komt is het raadzaam om de huisarts te contacteren.",
+      trigger: "ExtraHulp"
+    },
+    {
+      id: "OorDruk",
+      message: "Het gevoel van druk in een oor is mogelijk. Dit kan eveneens pijn veroorzaken maar dit zal weggaan. Indien dit probleem zich blijft aanslepen, contacteert u best een arts",
+      trigger: "ExtraHulp"
+    },
+    {
+      id: "TrommelKoorts",
+      message: "Geef het kind medicatie volgens schema. Indien de koorts 3 opeenvolgende dagen aanhoudt, is het aangeraden om een arts te contacteren. Dit kan mogelijks aanwijzen op een infectie",
+      trigger: "ExtraHulp"
+    },
+    {
+      id:'ExtraHulp',
+      message: 'Kan ik nog ergens mee helpen?',
+      trigger: 'Keuze'
+    },
+    {
+      id:'Keuze',
+      options: [
+        { value: 1, label: "Ja", trigger: "Trommel" },
+        { value: 2, label: "Nee", trigger: "Einde" },
+      ]
     },
   ];
 
 
   return (
     <div>
-      <ChatBot steps={logica} botDelay={500} userDelay={300}  floating={true} />
+      <ChatBot steps={logica} botDelay={1000} userDelay={300}  floating={true} hideSubmitButton={true} />
     </div>
   );
 };

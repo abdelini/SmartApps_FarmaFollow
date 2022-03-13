@@ -8,4 +8,13 @@
     border: 1px solid #fff;
     box-shadow: 0 0 3px 3px #090;
   }
+
+  img {
+    margin-right: 5px;
+  }
+
+  Form  p {
+    margin-right: 5px;
+    text-align: center;
+  }
   

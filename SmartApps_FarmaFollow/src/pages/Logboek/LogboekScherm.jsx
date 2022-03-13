@@ -18,7 +18,9 @@ const LogboekScherm = () => {
   //Get current date
   let currDate = new Date();
   currDate.setDate(currDate.getDate());
-  let startDate = currDate.toDateString();
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  let startDate = currDate.toLocaleDateString('nl-be', options);
+  
 
   // Get user from context
   const { currentUser } = useAuth();
@@ -74,37 +76,49 @@ const LogboekScherm = () => {
 
   return (
     <div>
+      
       <h3>{startDate}</h3>
 
       
 
       <p>Klik op een emoji om aan te duiden hoe het kind zich voelt</p>
+
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
       
         <input onChange={() => {setFeeling("Heel goed")}} type="radio" name="emotion" id="heelgoed" class="input-hidden" />
         <label class="label_item" for="heelgoed">
           <img src={Heelgoed} alt="Ik voel me heel goed" />
+          <p>Heel goed </p>
         </label>
+        
 
         <input onChange={() => {setFeeling("Goed")}} type="radio" name="emotion" id="goed" class="input-hidden" />
         <label class="label_item" for="goed">
           <img src={Goed} alt="Ik voel me goed" />
+          <p> Goed </p>
         </label>
+        
 
         <input onChange={() => {setFeeling("Matig")}} type="radio" name="emotion" id="matig" class="input-hidden" />
         <label class="label_item" for="matig">
           <img src={Matig} alt="Ik voel me matig" />
+          <p>Matig</p>
         </label>
+        
 
         <input onChange={() => {setFeeling("Slecht")}} type="radio" name="emotion" id="slecht" class="input-hidden" />
         <label class="label_item" for="slecht">
           <img src={Slecht} alt="Ik voel me slecht" />
+          <p>Slecht</p>
         </label>
+        
 
         <input onChange={() => {setFeeling("Heel slecht")}} type="radio" name="emotion" id="heelslecht" class="input-hidden" />
         <label class="label_item" for="heelslecht">
           <img src={Heelslecht} alt="Ik voel me heel slecht" />
+          <p>Heel slecht</p>
         </label>
+        
 
         <h3>Notities</h3>
 
@@ -126,6 +140,8 @@ const LogboekScherm = () => {
           Voeg toe aan logboek
         </Button>
       </Form>
+
+      <p>De logboekverslagen worden opgeslagen bij uw profiel. Klik hier om naar uw profiel te gaan </p>
     </div>
   );
 };

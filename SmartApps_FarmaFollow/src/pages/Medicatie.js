@@ -8,7 +8,7 @@ function Medicatie() {
     <div>
       <h3>
         Medicatie voor Tonsillectomie (Keelamandelen) en/of Adenotomie
-        (Neusamandelen){" "}
+        (Neusamandel){" "}
       </h3>
       <Table striped bordered hover responsive>
         <thead>
@@ -21,27 +21,27 @@ function Medicatie() {
         <tbody>
           <tr>
             <td>5 – 10 kg</td>
-            <td>Paracetamol suppo 100 mg</td>
+            <td>Paracetamol siroop of suppo 100 mg</td>
             <td>Om de 4 tot 6 uur</td>
           </tr>
           <tr>
             <td>10 – 15 kg</td>
-            <td>Paracetamol suppo 200 mg</td>
+            <td>Paracetamol siroop of suppo 200 mg</td>
             <td>Om de 6 tot 8 uur</td>
           </tr>
           <tr>
             <td>16 – 20 kg</td>
-            <td>Paracetamol suppo 200 mg</td>
+            <td>Paracetamol siroop of suppo 200 mg</td>
             <td>Om de 4 tot 6 uur</td>
           </tr>
           <tr>
             <td>21 – 30 kg</td>
-            <td>Paracetamol suppo 350 mg</td>
+            <td>Paracetamol siroop of suppo 350 mg</td>
             <td>Om de 6 uur</td>
           </tr>
           <tr>
             <td>5 – 30 kg</td>
-            <td>Paracetamol siroop volgens gewicht</td>
+            <td>Paracetamol siroop of siroop volgens gewicht</td>
             <td>Om de 6 uur</td>
           </tr>
         </tbody>
@@ -60,7 +60,8 @@ function Medicatie() {
         <tbody>
           <tr>
             <td>5 – 30 kg</td>
-            <td>Ibuprofen siroop volgens gewicht</td>
+            <td>Ibuprofen siroop of suppo
+               volgens gewicht</td>
             <td>Om de 8 uur</td>
           </tr>
         </tbody>

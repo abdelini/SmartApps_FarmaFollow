@@ -19,9 +19,9 @@ export default function ForgotPassword() {
       setError("")
       setLoading(true)
       await resetPassword(emailRef.current.value)
-      setMessage("Check your inbox for further instructions")
+      setMessage("Check uw email inbox voor verdere instructies")
     } catch {
-      setError("Failed to reset password")
+      setError("Account niet gevonden! Heeft u het juiste email-adress ingevoerd?")
     }
 
     setLoading(false)
@@ -29,8 +29,6 @@ export default function ForgotPassword() {
 
   return (
     <>
-      <Card>
-        <Card.Body>
         <img className="rounded mx-auto d-block" src={logo} alt="logo"></img>
           {error && <Alert variant="danger">{error}</Alert>}
           {message && <Alert variant="success">{message}</Alert>}
@@ -40,17 +38,12 @@ export default function ForgotPassword() {
               <Form.Control type="email" ref={emailRef} required />
             </Form.Group>
             <Button disabled={loading} className="w-100" type="submit">
-              Reset Password
+              Reset Paswoord
             </Button>
           </Form>
           <div className="w-100 text-center mt-3">
-            <Link to="/login">Login</Link>
+            <Link to="/login">Ga terug naar Login</Link>
           </div>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        Need an account? <Link to="/signup">Sign Up</Link>
-      </div>
     </>
   )
 }

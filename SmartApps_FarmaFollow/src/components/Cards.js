@@ -30,7 +30,7 @@ function Cards() {
                 <Card.Img variant="top" src={LogboekImage} />
                     <Card.Title>Logboek</Card.Title>
                     <Card.Text className='cards-text'>
-                    Hou de gezondheid van je kind bij.
+                    Hou hier het verloop van het herstelproces van uw kind bij
                     </Card.Text>
                     <Button onClick={goToLogboek} variant="primary">Logboek
                     </Button>
@@ -41,7 +41,7 @@ function Cards() {
                 <Card.Img variant="top" src={MedicatieImage} />
                     <Card.Title>Medicatie</Card.Title>
                     <Card.Text className='cards-text'>
-                    Wat moet je kind nemen op welk moment?
+                    Welk geneesmiddel mag je kind nemen op welk tijdstip?
                     </Card.Text>
                     <Button onClick={goToMedicatie} variant="primary">Medicatie</Button>
                 </Card.Body>
@@ -52,7 +52,7 @@ function Cards() {
                 <Card.Img variant="top" src={TipsImage} />
                     <Card.Title>Tips</Card.Title>
                     <Card.Text className='cards-text'>
-                    Enkele tips om uw kind te helpen
+                    Nuttige tips en adviezen om uw kind te helpen
                     </Card.Text>
                     <Button onClick={goToTips} variant="primary">Tips</Button>
                 </Card.Body>

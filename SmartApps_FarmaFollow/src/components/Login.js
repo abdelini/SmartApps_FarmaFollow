@@ -77,11 +77,11 @@ export default function Login() {
         </Button>
       </Form>
       <div className="w-100 text-center mt-3">
-        <Link to="/forgot-password">Forgot Password?</Link>
+        <Link to="/forgot-password">Paswoord vergeten?</Link>
       </div>
 
       <div className="w-100 text-center mt-2">
-        Need an account? <Link to="/signup/Signup">Sign Up</Link>
+        Nog geen account? <Link to="/signup/Signup">Registreer een account</Link>
       </div>
     </>
   );

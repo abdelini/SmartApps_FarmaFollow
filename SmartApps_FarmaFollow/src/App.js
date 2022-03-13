@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Card from "./components/Cards";
 import Child from "./pages/Child";
@@ -10,16 +9,19 @@ import ChatBot from "./pages/Chatbot/ChatBot";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import Signup from "./components/signup/Signup";
-import Tips from "./components/tips/Tips";
+import Tips from "./pages/Tips";
 import Medicatie from "./pages/Medicatie"
+import Navigation from "./pages/Navbar";
+import ForgotPassword from "./components/ForgotPassword"
 
 
 function App() {
   return (
     <>
-      <Navbar />
-      
+
+<Navigation />
       <Routes>
+        
         <Route
           path="/"
           element={
@@ -37,8 +39,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/medicatie" element={<Medicatie />} />
         <Route path="/tips" element={<Tips />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
-      
+
       <ChatBot />
     </>
   );
